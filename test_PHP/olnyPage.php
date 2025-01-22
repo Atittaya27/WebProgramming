@@ -21,7 +21,7 @@ else {
      <html>
     <head><title>การสร้างฟอร์มในการรับค่าเพื่อคำนวณ</title></head>
      <body>
-     <form method="get" action="olny.php">
+     <form method="get" action="olnyPage.php">
      <table border="1" align="center" width="500">
     <tr>
     <td colspan="2" align="center">
