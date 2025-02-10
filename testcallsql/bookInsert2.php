@@ -39,9 +39,9 @@ $picture = $_FILES['imageFile']['name'];
 $sql = "insert into book(bookId, bookName, typeId, statusId, publish, unitPrice, unitRent,
 dayAmount, picture, bookDate) values ('$bookId', '$bookName', '$typeId', '$statusId', '$publish',
 '$unitPrice', '$unitRent', '$dayAmount', '$picture', '$bookDate')";
-mysqli_query($conn, $sql) or die("insert ลงตาราง book มีข้อผิดพลาดเกิดขึ้น" .mysqli_error());
+mysqli_query($conn, $sql) or die("insert ลงตาราง book มีข้อผิดพลาดเกิดขึ้น" .mysqli_error($conn));
 echo '<br><br><h2>บันทึกข้อมูลหนังสือรหัส '.$bookId.' เรียบร้อย</h2>';
 echo '<br><br><a href="bookList1.php">กลับหน้า bookList1.php</a>';
 mysqli_close($conn);
 echo '</center>';
-?>
+?> 
