@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 10, 2025 at 11:09 AM
+-- Generation Time: Feb 11, 2025 at 03:00 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.0.30
 
@@ -28,10 +28,10 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `book` (
-  `BookID` varchar(5) NOT NULL,
-  `BookName` varchar(50) NOT NULL,
-  `TypeID` char(3) NOT NULL,
-  `StatusID` char(2) NOT NULL,
+  `BookID` varchar(5) NOT NULL DEFAULT 'NO',
+  `BookName` varchar(30) NOT NULL DEFAULT 'NO',
+  `TypeID` char(3) NOT NULL DEFAULT 'NO',
+  `StatusID` char(2) NOT NULL DEFAULT 'NO',
   `Publish` varchar(20) DEFAULT NULL,
   `UnitPrice` int(4) NOT NULL,
   `UnitRent` int(2) NOT NULL,
@@ -45,11 +45,11 @@ CREATE TABLE `book` (
 --
 
 INSERT INTO `book` (`BookID`, `BookName`, `TypeID`, `StatusID`, `Publish`, `UnitPrice`, `UnitRent`, `DayAmount`, `Picture`, `BookDate`) VALUES
-('00001', 'Doraemon', '001', '01', 'Kpn', 150, 3, 2, '-', '2554-02-01'),
 ('00002', 'เก็บตะวัน', '002', '03', 'WRP', 250, 5, 3, '-', '2554-03-20'),
-('00003', 'สิ่งมีชีวิต', '002', '01', 'YPR', 185, 3, 3, '-', '2553-03-25'),
+('00003', 'สิ่งมีชีวติ', '002', '01', 'YPR', 185, 3, 3, '-', '2553-03-25'),
 ('00004', 'คู่สร้างคู่สม', '003', '01', 'DDR', 20, 1, 2, '-', '2552-01-15'),
-('00005', 'Konan', '001', '02', 'Kpn', 80, 2, 2, '-', '2554-04-08');
+('00005', 'Konan', '001', '02', 'Kpn', 80, 2, 2, '-', '2554-04-08'),
+('00621', 'hoho', '002', '01', '-', 60, 10, 10, '', '2025-02-10');
 
 -- --------------------------------------------------------
 
@@ -58,15 +58,15 @@ INSERT INTO `book` (`BookID`, `BookName`, `TypeID`, `StatusID`, `Publish`, `Unit
 --
 
 CREATE TABLE `statusbook` (
-  `StatusID` char(2) NOT NULL DEFAULT 'No',
-  `StatuaName` varchar(20) NOT NULL DEFAULT 'NO'
+  `StatusID` char(2) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT 'NO',
+  `StatusName` varchar(20) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT 'NO'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `statusbook`
 --
 
-INSERT INTO `statusbook` (`StatusID`, `StatuaName`) VALUES
+INSERT INTO `statusbook` (`StatusID`, `StatusName`) VALUES
 ('01', 'ปกติ'),
 ('02', 'ชำรุด'),
 ('03', 'ส่งซ่อม');
@@ -78,15 +78,15 @@ INSERT INTO `statusbook` (`StatusID`, `StatuaName`) VALUES
 --
 
 CREATE TABLE `typebook` (
-  `TypeID` char(3) NOT NULL,
-  `TypeName` varchar(50) NOT NULL
+  `typeID` char(3) NOT NULL DEFAULT 'NO',
+  `typeName` varchar(50) NOT NULL DEFAULT 'NO'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `typebook`
 --
 
-INSERT INTO `typebook` (`TypeID`, `TypeName`) VALUES
+INSERT INTO `typebook` (`typeID`, `typeName`) VALUES
 ('001', 'การ์ตูน'),
 ('002', 'นิยาย'),
 ('003', 'นิตยสาร');
@@ -113,7 +113,7 @@ ALTER TABLE `statusbook`
 -- Indexes for table `typebook`
 --
 ALTER TABLE `typebook`
-  ADD PRIMARY KEY (`TypeID`);
+  ADD PRIMARY KEY (`typeID`);
 
 --
 -- Constraints for dumped tables
@@ -123,8 +123,7 @@ ALTER TABLE `typebook`
 -- Constraints for table `book`
 --
 ALTER TABLE `book`
-  ADD CONSTRAINT `book_ibfk_1` FOREIGN KEY (`TypeID`) REFERENCES `typebook` (`TypeID`),
-  ADD CONSTRAINT `book_ibfk_2` FOREIGN KEY (`StatusID`) REFERENCES `statusbook` (`StatusID`);
+  ADD CONSTRAINT `book_ibfk_1` FOREIGN KEY (`TypeID`) REFERENCES `typebook` (`typeID`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

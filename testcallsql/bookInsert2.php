@@ -7,7 +7,6 @@ $publish = $_POST['publish'];
 $unitPrice = $_POST['unitPrice'];
 $unitRent = $_POST['unitRent'];
 $dayAmount = $_POST['dayAmount'];
-$oldImageFile = @$_POST['oldImageFile'];
 $imageFileName = @$_FILES['imageFile']['name'];
 $imageFileType = @$_FILES['imageFile']['type'];
 $imageFileSize = @$_FILES['imageFile']['size'];
@@ -31,8 +30,7 @@ echo '<b><li>คุณไม่ได้เลือกรูปภาพ</li></
 }
 else
 {
-move_uploaded_file($_FILES["imageFile"]["tmp_name"],"pictures/".$_FILES["imageFile"]["na
-me"]);
+move_uploaded_file($_FILES["imageFile"]["tmp_name"],"pictures/".$_FILES["imageFile"]["name"]);
 
 $picture = $_FILES['imageFile']['name'];
 }
