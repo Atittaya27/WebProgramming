@@ -5,7 +5,7 @@ global $conn;
 $sql = "select * from typebook order by typeID";
 $dbQuery = mysqli_query($conn, $sql);
 if (!$dbQuery)
-die("(functionDB:getTypeSelect) select typebook มีข้อผิดพลาด".mysqli_error());
+die("(functionDB:getTypeSelect) select typebook มีข้อผิดพลาด".mysqli_error($conn));
 echo '<option value="">เลือกประเภทหนังสือ</option>';
 while($result=mysqli_fetch_object($dbQuery))
 {
@@ -18,7 +18,7 @@ global $conn;
 $sql = "select * from statusbook order by StatusID";
 $dbQuery = mysqli_query($conn, $sql);
 if (!$dbQuery)
-die("(functionDB:getStatusSelect) select status มีข้อผิดพลาด".mysqli_error());
+die("(functionDB:getStatusSelect) select status มีข้อผิดพลาด".mysqli_error($conn));
 echo '<option value="">เลือกสถานะ</option>';
 while($result=mysqli_fetch_object($dbQuery))
 {

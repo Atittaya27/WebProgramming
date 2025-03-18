@@ -15,9 +15,9 @@ $rs = mysqli_fetch_array ( $result );
 echo "<table border=1 align=center bgcolor=#FFCCCC width=400>";
 echo "<tr><td colspan=2 bgcolor =#FF99CC>";
 echo "<B><center>แสดงรายละเอียดผู้ใช้</center></B></td></tr>";
-echo "<tr><td> Username : </td><td>".$rs["username"]."</td></tr>";
-echo "<tr><td> Password : </td><td>".$rs["password"]."</td></tr>";
-echo "<tr><td> Status : </td><td>".$rs["status"]."</td></tr>";
+echo "<tr><td> Username : </td><td>".$rs["UserName"]."</td></tr>"; // ["UserName"] ต้องตรงกับชื่อ field ในฐานข้อมูล
+echo "<tr><td> Password : </td><td>".$rs["Password"]."</td></tr>"; // ["Password"] ต้องตรงกับชื่อ field ในฐานข้อมูล
+echo "<tr><td> Status : </td><td>".$rs["Status"]."</td></tr>"; // ["Status"] ต้องตรงกับชื่อ field ในฐานข้อมูล
 echo "</table>";
 echo "<br><center><a href='logout.php?Username=$Username'> logout </a>";
 }

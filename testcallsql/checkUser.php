@@ -13,17 +13,17 @@ $sqltxt = "SELECT * FROM login where username = '$Username'";
 $result = mysqli_query ( $conn, $sqltxt );
 $rs = mysqli_fetch_array ( $result );
 if ( $rs ) {
-if ($rs['password'] == $Password) {
+if ($rs['Password'] == $Password) {
 $_SESSION['Username']=$Username;
-header("Location: booklist1");
+header("Location: welcome.php?Username=$Username");
 }
 else {
-echo "<br>Password not match.";
-echo "<br><a href='login.php'>คลิก กลับไปเพื่อ login</a>";
+echo "<br><center>Password not match.";
+echo "<br><center><a href='login.php'>คลิก กลับไปเพื่อ login</a>";
 }
 }
 else {
-echo "Not found Username " . $Username;
-echo "<br><a href='login.php'>คลิก กลับไปเพื่อ login </a>";
+echo "<center>Not found Username " . $Username;
+echo "<br><center><a href='login.php'>คลิก กลับไปเพื่อ login </a>";
 }
 ?>
